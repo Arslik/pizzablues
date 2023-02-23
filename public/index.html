@@ -39,24 +39,34 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
 
-    <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-database.js"></script>
 
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#config-web-app -->
+
+    <script>
       // Your web app's Firebase configuration
-      const firebaseConfig = {
+      var firebaseConfig ={
         apiKey: "AIzaSyBeiBEVDOneN3RzWEC1xpfyPHEPNskdYNA",
         authDomain: "pizza-blues-b0246.firebaseapp.com",
         projectId: "pizza-blues-b0246",
         storageBucket: "pizza-blues-b0246.appspot.com",
         messagingSenderId: "978068882478",
         appId: "1:978068882478:web:4ceb38bb2b0988d6400bbf"
-      };
 
+      };
+      /* var firebaseConfig = {
+
+      };*/
       // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
+      if(!firebaseConfig){
+        alert('This project is just for reference, it will not run unless you configure firebase following the lectures');
+      }else {
+        firebase.initializeApp(firebaseConfig);
+
+      }
     </script>
 
   </body>
