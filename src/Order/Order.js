@@ -80,7 +80,7 @@ function sendOrder(orders, { email, displayName }) {
 }
 
 
-export function Order({orders, setOrders, setOpenFood, login, loggedIn}){
+export function Order({orders, setOrders, setOpenFood, login, loggedIn,setOpenOrderDialog}){
     const subtotal = orders.reduce((total, order) =>{
         return total +getPrice(order)
     }, 0);
@@ -150,13 +150,14 @@ export function Order({orders, setOrders, setOpenFood, login, loggedIn}){
             </OrderContent>
             )}
             <DialogFooter>
-                <ConfirmButton onClick={() => {
+                {orders.length >0 && <ConfirmButton onClick={() => {
                     if (loggedIn) {
+                        setOpenOrderDialog(true);
                         sendOrder(orders, loggedIn);
                     } else {
                         login();
                     }
-                }}>Checkout</ConfirmButton>
+                }}>Checkout</ConfirmButton>}
             </DialogFooter>
     </OrderStyled>
     );
